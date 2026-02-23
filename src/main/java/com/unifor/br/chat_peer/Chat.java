@@ -8,7 +8,6 @@ import java.io.InputStreamReader;
 import java.util.Locale;
 import java.util.Scanner;
 
-
 public class Chat {
 
     public static void main(String[] args) throws Exception {
@@ -20,9 +19,9 @@ public class Chat {
         String userName = scanner.nextLine().trim();
         if (userName.isBlank()) userName = "anon";
 
-        int port = 9070;
+        int port = 0;
+        boolean forward = false;
 
-        boolean forward = true;
         PeerNode node = new PeerNode(userName, port, forward);
 
         node.onDisplay = System.out::println;
@@ -38,7 +37,6 @@ public class Chat {
         }
 
         System.out.println("\n=== Chat iniciado ===");
-        System.out.println("Digite mensagens para enviar ou comandos:");
         System.out.println("  /connect host port | /peers | /history | /discover | /exit\n");
 
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
@@ -76,7 +74,6 @@ public class Chat {
                     case "/history" -> System.out.print(node.history().dump());
                     case "/discover" -> {
                         if (discovery != null) discovery.announceDiscover();
-                        node.connectKnownPeers();
                         System.out.println("Discovery acionado.");
                     }
                     case "/exit" -> {
