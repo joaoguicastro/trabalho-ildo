@@ -4,7 +4,6 @@ import java.time.Instant;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
-/** Represents a message shown to the user (incoming or outgoing). */
 public final class ChatMessage {
     public final Instant timestamp;
     public final String from;

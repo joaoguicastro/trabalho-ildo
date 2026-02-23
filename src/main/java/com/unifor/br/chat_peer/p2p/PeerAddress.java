@@ -4,7 +4,6 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Objects;
 
-/** Immutable host:port identifier. */
 public final class PeerAddress {
     public final String host;
     public final int port;

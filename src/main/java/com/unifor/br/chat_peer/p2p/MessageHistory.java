@@ -5,10 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * In-memory message history for the current session.
- * (Requirement: "Histórico de Mensagens: registrar e exibir durante a sessão")
- */
+
 public final class MessageHistory {
 
     private final List<ChatMessage> messages = Collections.synchronizedList(new ArrayList<>());

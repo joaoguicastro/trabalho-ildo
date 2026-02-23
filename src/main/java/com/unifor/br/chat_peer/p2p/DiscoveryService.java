@@ -9,15 +9,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-/**
- * Optional peer discovery (LAN) via UDP multicast.
- * - Chat traffic is still TCP as required.
- * - This service only helps find peers to connect without manually typing IP/port.
- *
- * Protocol (UDP):
- *   DISCOVER|port|username
- *   HERE|port|username
- */
+
 public final class DiscoveryService implements Closeable {
 
     private static final String GROUP = "230.0.0.0";

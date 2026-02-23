@@ -5,9 +5,7 @@ import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-/**
- * Wraps a TCP socket + buffered streams and stores metadata about the remote peer.
- */
+
 public final class PeerConnection implements Closeable {
 
     private final Socket socket;

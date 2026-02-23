@@ -9,16 +9,7 @@ import java.util.*;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-/**
- * Core P2P node:
- * - Accepts multiple incoming connections (TCP server)
- * - Can connect to multiple peers (outgoing)
- * - Broadcasts messages to all connections
- * - (Optional) Forwards messages (multi-hop) with de-dup to avoid loops
- * - Exchanges peer lists to help discovery over TCP
- * - Keeps session message history
- * - Supports safe shutdown
- */
+
 public final class PeerNode implements AutoCloseable {
 
     private final String username;

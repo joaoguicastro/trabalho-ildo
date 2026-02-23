@@ -3,23 +3,6 @@ package com.unifor.br.chat_peer.p2p;
 import java.util.Objects;
 import java.util.UUID;
 
-/**
- * Very small line-based protocol over TCP.
- *
- * Format (single line, UTF-8, no newlines inside fields):
- *   TYPE|field1|field2|...   (pipe '|' separated)
- *
- * Supported types:
- *  - HELLO|msgId|username|listenPort
- *  - MSG|msgId|from|text
- *  - PEERS_REQ|msgId
- *  - PEERS_RES|msgId|host1:port1,host2:port2,...
- *  - BYE|msgId|username
- *
- * Notes:
- *  - msgId is used for de-duplication and safe forwarding.
- *  - text is escaped (pipes and backslashes) to keep a single-line protocol.
- */
 public final class ProtocolMessage {
 
     public enum Type { HELLO, MSG, PEERS_REQ, PEERS_RES, BYE }
@@ -27,13 +10,13 @@ public final class ProtocolMessage {
     public final Type type;
     public final String id;
 
-    public final String username;     // HELLO, BYE
-    public final Integer listenPort;  // HELLO
+    public final String username;
+    public final Integer listenPort;
 
-    public final String from;         // MSG
-    public final String text;         // MSG (escaped)
+    public final String from;
+    public final String text;
 
-    public final String peersCsv;     // PEERS_RES
+    public final String peersCsv;
 
     private ProtocolMessage(Type type, String id, String username, Integer listenPort, String from, String text, String peersCsv) {
         this.type = type;
